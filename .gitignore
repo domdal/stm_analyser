@@ -1,3 +1,13 @@
+# custom
+ofa_nets/ofa_NAS_TEST1/NUCLEO-L4R5ZI/
+ofa_nets/ofa_NAS_TEST1/NUCLEO-L432KC/
+ofa_nets/ofa_NAS_TEST1/STM32F746G-DISCO/
+project/L4R5ZI_generate/
+project/L432KC_generate/
+project/STM32F746G_generate/
+.vscode/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

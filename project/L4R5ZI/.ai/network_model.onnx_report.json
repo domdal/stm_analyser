@@ -1,0 +1,1461 @@
+{
+    "_allocate_inputs": 4,
+    "_allocate_outputs": 4,
+    "cli_parameters": "analyze --name network -m C:/Users/Dominik/git/matthias_stm_auswertung/onnx_model/model.onnx --type onnx --compression none --verbosity 1 --workspace C:\\Users\\Dominik\\AppData\\Local\\Temp\\mxAI_workspace85920320428001597264817739078271 --output C:\\Users\\Dominik\\.stm32cubemx\\network_output --allocate-inputs --series stm32l4 --allocate-outputs",
+    "cli_version": {
+        "major": 1,
+        "micro": 0,
+        "minor": 7
+    },
+    "cli_version_str": "1.7.0",
+    "compression": {
+        "factor": null,
+        "layers": {}
+    },
+    "date_time": "Wed Mar  1 10:25:47 2023",
+    "error": 0,
+    "error_str": [],
+    "exec_cmd": "analyze",
+    "exec_duration": 0.0,
+    "hash": "68add3eb16998867b8a1a22eb8459625",
+    "inputs": [
+        "input_0"
+    ],
+    "layers": [
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 320,
+                "psize": 1280,
+                "rom_size": 0
+            },
+            "id": 49,
+            "inputs": [],
+            "name": "linear_weight",
+            "original": "Gemm",
+            "type": "Placeholder"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 5,
+                "psize": 20,
+                "rom_size": 0
+            },
+            "id": 49,
+            "inputs": [],
+            "name": "linear_bias",
+            "original": "Gemm",
+            "type": "Placeholder"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 1600,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 0,
+            "inputs": [],
+            "name": "input_0",
+            "original": "",
+            "type": "Input"
+        },
+        {
+            "c_id": [
+                2
+            ],
+            "extras": {
+                "n_macc": 1200,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 1600,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 1,
+            "inputs": [
+                "input_0"
+            ],
+            "name": "input_1",
+            "original": "MaxPool",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 243232,
+                "n_params": 640,
+                "psize": 2560,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 2,
+            "inputs": [
+                "input_0"
+            ],
+            "name": "input_8",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                1
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 2560
+            },
+            "id": 3,
+            "inputs": [
+                "input_8"
+            ],
+            "name": "onnxConcat_349",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 12832,
+                "n_params": 64,
+                "psize": 256,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 4,
+            "inputs": [
+                "input_1"
+            ],
+            "name": "input_16",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                3
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 256
+            },
+            "id": 5,
+            "inputs": [
+                "input_16"
+            ],
+            "name": "onnxConcat_352",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                4
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 6,
+            "inputs": [
+                "onnxConcat_349",
+                "onnxConcat_352"
+            ],
+            "name": "input_20",
+            "original": "Concat",
+            "type": "Concat"
+        },
+        {
+            "c_id": [
+                7
+            ],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 8320
+            },
+            "id": 7,
+            "inputs": [
+                "input_20"
+            ],
+            "name": "input_28",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                5
+            ],
+            "extras": {
+                "n_macc": 76800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 8,
+            "inputs": [
+                "input_20"
+            ],
+            "name": "input_32",
+            "original": "MaxPool",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 28262432,
+                "n_params": 70688,
+                "psize": 282752,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 9,
+            "inputs": [
+                "input_28"
+            ],
+            "name": "input_40",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                8
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 282752
+            },
+            "id": 10,
+            "inputs": [
+                "input_40"
+            ],
+            "name": "onnxConcat_359",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 11,
+            "inputs": [
+                "input_32"
+            ],
+            "name": "input_48",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                6
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 8320
+            },
+            "id": 12,
+            "inputs": [
+                "input_48"
+            ],
+            "name": "onnxConcat_362",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                9
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 13,
+            "inputs": [
+                "onnxConcat_359",
+                "onnxConcat_362"
+            ],
+            "name": "input_52",
+            "original": "Concat",
+            "type": "Concat"
+        },
+        {
+            "c_id": [
+                12
+            ],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 8320
+            },
+            "id": 14,
+            "inputs": [
+                "input_52"
+            ],
+            "name": "input_60",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                10
+            ],
+            "extras": {
+                "n_macc": 76800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 15,
+            "inputs": [
+                "input_52"
+            ],
+            "name": "input_64",
+            "original": "MaxPool",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 24166432,
+                "n_params": 60448,
+                "psize": 241792,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 16,
+            "inputs": [
+                "input_60"
+            ],
+            "name": "input_72",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                13
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 241792
+            },
+            "id": 17,
+            "inputs": [
+                "input_72"
+            ],
+            "name": "onnxConcat_369",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 18,
+            "inputs": [
+                "input_64"
+            ],
+            "name": "input_80",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                11
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 8320
+            },
+            "id": 19,
+            "inputs": [
+                "input_80"
+            ],
+            "name": "onnxConcat_372",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                14
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 20,
+            "inputs": [
+                "onnxConcat_369",
+                "onnxConcat_372"
+            ],
+            "name": "onnxAdd_373",
+            "original": "Concat",
+            "type": "Concat"
+        },
+        {
+            "c_id": [
+                0
+            ],
+            "extras": {
+                "n_macc": 25664,
+                "n_params": 128,
+                "psize": 512,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 512
+            },
+            "id": 21,
+            "inputs": [
+                "input_0"
+            ],
+            "name": "onnxAdd_439",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                15
+            ],
+            "extras": {
+                "n_macc": 25600,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 22,
+            "inputs": [
+                "onnxAdd_373",
+                "onnxAdd_439"
+            ],
+            "name": "input_88",
+            "original": "Add",
+            "type": "Eltwise"
+        },
+        {
+            "c_id": [
+                16
+            ],
+            "extras": {
+                "n_macc": 25600,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 23,
+            "inputs": [
+                "input_88"
+            ],
+            "name": "input_92",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                20
+            ],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 8320
+            },
+            "id": 24,
+            "inputs": [
+                "input_92"
+            ],
+            "name": "input_100",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                18
+            ],
+            "extras": {
+                "n_macc": 76800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 25,
+            "inputs": [
+                "input_92"
+            ],
+            "name": "input_104",
+            "original": "MaxPool",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 7782432,
+                "n_params": 19488,
+                "psize": 77952,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 26,
+            "inputs": [
+                "input_100"
+            ],
+            "name": "input_112",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                21
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 77952
+            },
+            "id": 27,
+            "inputs": [
+                "input_112"
+            ],
+            "name": "onnxConcat_383",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 28,
+            "inputs": [
+                "input_104"
+            ],
+            "name": "input_120",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                19
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 8320
+            },
+            "id": 29,
+            "inputs": [
+                "input_120"
+            ],
+            "name": "onnxConcat_386",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                22
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 30,
+            "inputs": [
+                "onnxConcat_383",
+                "onnxConcat_386"
+            ],
+            "name": "input_124",
+            "original": "Concat",
+            "type": "Concat"
+        },
+        {
+            "c_id": [
+                25
+            ],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 8320
+            },
+            "id": 31,
+            "inputs": [
+                "input_124"
+            ],
+            "name": "input_132",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                23
+            ],
+            "extras": {
+                "n_macc": 76800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 32,
+            "inputs": [
+                "input_124"
+            ],
+            "name": "input_136",
+            "original": "MaxPool",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 24166432,
+                "n_params": 60448,
+                "psize": 241792,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 33,
+            "inputs": [
+                "input_132"
+            ],
+            "name": "input_144",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                26
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 241792
+            },
+            "id": 34,
+            "inputs": [
+                "input_144"
+            ],
+            "name": "onnxConcat_393",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 35,
+            "inputs": [
+                "input_136"
+            ],
+            "name": "input_152",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                24
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 8320
+            },
+            "id": 36,
+            "inputs": [
+                "input_152"
+            ],
+            "name": "onnxConcat_396",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                27
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 37,
+            "inputs": [
+                "onnxConcat_393",
+                "onnxConcat_396"
+            ],
+            "name": "input_156",
+            "original": "Concat",
+            "type": "Concat"
+        },
+        {
+            "c_id": [
+                30
+            ],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 8320
+            },
+            "id": 38,
+            "inputs": [
+                "input_156"
+            ],
+            "name": "input_164",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                28
+            ],
+            "extras": {
+                "n_macc": 76800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 39,
+            "inputs": [
+                "input_156"
+            ],
+            "name": "input_168",
+            "original": "MaxPool",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 15974432,
+                "n_params": 39968,
+                "psize": 159872,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 40,
+            "inputs": [
+                "input_164"
+            ],
+            "name": "input_176",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                31
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 159872
+            },
+            "id": 41,
+            "inputs": [
+                "input_176"
+            ],
+            "name": "onnxConcat_403",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 819232,
+                "n_params": 2080,
+                "psize": 8320,
+                "rom_output": {
+                    "c_size": 51200,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        32,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 42,
+            "inputs": [
+                "input_168"
+            ],
+            "name": "input_184",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                29
+            ],
+            "extras": {
+                "n_macc": 12800,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 8320
+            },
+            "id": 43,
+            "inputs": [
+                "input_184"
+            ],
+            "name": "onnxConcat_406",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                32
+            ],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 44,
+            "inputs": [
+                "onnxConcat_403",
+                "onnxConcat_406"
+            ],
+            "name": "onnxAdd_407",
+            "original": "Concat",
+            "type": "Concat"
+        },
+        {
+            "c_id": [
+                17
+            ],
+            "extras": {
+                "n_macc": 1638464,
+                "n_params": 4160,
+                "psize": 16640,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 16640
+            },
+            "id": 45,
+            "inputs": [
+                "input_92"
+            ],
+            "name": "onnxAdd_469",
+            "original": "Conv",
+            "type": "Conv2D"
+        },
+        {
+            "c_id": [
+                33
+            ],
+            "extras": {
+                "n_macc": 25600,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 46,
+            "inputs": [
+                "onnxAdd_407",
+                "onnxAdd_469"
+            ],
+            "name": "input_192",
+            "original": "Add",
+            "type": "Eltwise"
+        },
+        {
+            "c_id": [
+                34
+            ],
+            "extras": {
+                "n_macc": 25600,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 102400,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        400,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 47,
+            "inputs": [
+                "input_192"
+            ],
+            "name": "input_196",
+            "original": "Relu",
+            "type": "Nonlinearity"
+        },
+        {
+            "c_id": [
+                35
+            ],
+            "extras": {
+                "n_macc": 25600,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 256,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        1,
+                        64,
+                        1
+                    ]
+                },
+                "rom_size": 0
+            },
+            "id": 48,
+            "inputs": [
+                "input_196"
+            ],
+            "name": "onnxFlatten_412",
+            "original": "GlobalAveragePool",
+            "type": "Pool"
+        },
+        {
+            "c_id": [],
+            "extras": {
+                "n_macc": 0,
+                "n_params": 0,
+                "psize": 0,
+                "rom_size": 0
+            },
+            "id": 49,
+            "inputs": [
+                "onnxFlatten_412"
+            ],
+            "name": "onnxGemm_413",
+            "original": "Flatten",
+            "type": "Reshape"
+        },
+        {
+            "c_id": [
+                36
+            ],
+            "extras": {
+                "n_macc": 325,
+                "n_params": 0,
+                "psize": 0,
+                "rom_output": {
+                    "c_size": 20,
+                    "fmt": {
+                        "format": "float"
+                    },
+                    "shape": [
+                        1,
+                        1,
+                        5,
+                        1
+                    ]
+                },
+                "rom_size": 1300
+            },
+            "id": 50,
+            "inputs": [
+                "onnxGemm_413",
+                "linear_weight",
+                "linear_bias"
+            ],
+            "name": "output_0",
+            "original": "Gemm",
+            "type": "Gemm"
+        }
+    ],
+    "model_files": [
+        "C:\\Users\\Dominik\\git\\matthias_stm_auswertung\\onnx_model\\model.onnx"
+    ],
+    "model_n_params": 277157,
+    "model_name": "model",
+    "model_size": 1108628,
+    "model_type": "onnx",
+    "name": "network",
+    "outputs": [
+        "output_0"
+    ],
+    "ram_io_size": [
+        1600,
+        20
+    ],
+    "ram_size": [
+        308928,
+        308928
+    ],
+    "report_version": 1.1,
+    "rom_cfact": 1.0,
+    "rom_heap_inspector": 2048,
+    "rom_inputs": [
+        {
+            "c_size": 1600,
+            "c_type": "float",
+            "name": "input_0"
+        }
+    ],
+    "rom_n_macc": 111131797,
+    "rom_outputs": [
+        {
+            "c_size": 20,
+            "c_type": "float",
+            "name": "output_0"
+        }
+    ],
+    "rom_size": 1108628,
+    "strategy": "heap_overlay",
+    "tools_api_version": {
+        "major": 1,
+        "micro": 0,
+        "minor": 7
+    },
+    "tools_version": {
+        "extra": "19389",
+        "major": 8,
+        "micro": 0,
+        "minor": 0
+    },
+    "val_error": -1.0,
+    "val_error_desc": "None (None) #-1",
+    "val_metrics": []
+}
